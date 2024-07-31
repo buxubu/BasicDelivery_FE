@@ -1,0 +1,139 @@
+<mat-card>
+  <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+  <h4 style="text-align: center">
+    <strong>Trạng thái đơn hàng:</strong> {{ titleStatus }}
+    <hr />
+    <strong *ngIf="objOrder.value.completeAt">Giao thành công lúc:</strong>
+    {{ objOrder.value.completeAt | date : "HH:mm dd/MM/yyyy" }}
+    <hr />
+    <strong>Địa chỉ đơn hàng hiện tại:</strong> {{ objOrder.value.location }}
+  </h4>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Chi tiết đơn hàng</mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="objOrder">
+    <mat-card-content class="main">
+      <div class="list">
+        <div class="list__item">
+          <strong>Tên người nhận:</strong> {{ objOrder.value.receiverName }}
+        </div>
+        <div class="list__item">
+          <strong>Địa chỉ người nhận:</strong>
+          {{ objOrder.value.receiverAddress }}
+        </div>
+        <div class="list__item">
+          <strong>Số điện thoại người nhận:</strong>
+          {{ objOrder.value.receiverPhone }}
+        </div>
+
+        <div class="list__item">
+          <strong>Cân nặng gói hàng:</strong>
+          {{ objOrder.value.totalGamPackage }}g
+        </div>
+        <div class="list__item">
+          <strong>Chiều dài gói hàng:</strong> {{ objOrder.value.longPackage }}
+        </div>
+        <div class="list__item">
+          <strong>Chiều cao gói hàng:</strong>
+          {{ objOrder.value.heightPackage }}
+        </div>
+        <div class="list__item">
+          <strong>Chiều rộng gói hàng:</strong> {{ objOrder.value.widePackage }}
+        </div>
+        <div class="list__item">
+          <strong>Tiền giao hàng:</strong>
+          {{ objOrder.value.shipCost ?? 0 | vnd }}
+        </div>
+        <div class="list__item">
+          <strong>Giá trị sản phẩm:</strong>
+          {{ objOrder.value.totalPriceProduct ?? 0 | vnd }}
+        </div>
+        <div class="list__item">
+          <strong>Tiền thu hộ:</strong> {{ objOrder.value.totalCod ?? 0 | vnd }}
+        </div>
+        <div class="list__item">
+          <strong>Tiền giao (nếu không nhận thu):</strong>
+          {{ objOrder.value.failedDeliveryMoney ?? 0 | vnd }}
+        </div>
+        <div class="list__item" *ngIf="objOrder.value.estimatedDeliveryDate">
+          <strong>Dự kiến ngày giao:</strong>
+          {{ objOrder.value.estimatedDeliveryDate | date : "HH:mm dd/MM/yyyy" }}
+        </div>
+        <div class="list__item" *ngIf="!objOrder.value.estimatedDeliveryDate">
+          <strong>Dự kiến ngày giao:</strong> Chưa có người nhận hàng
+        </div>
+        <div class="list__item" *ngIf="objOrder.value.requestSeeProduct">
+          <strong>Cho xem hàng:</strong> Cho xem hàng
+        </div>
+        <div class="list__item" *ngIf="!objOrder.value.requestSeeProduct">
+          <strong>Cho xem hàng:</strong> Không cho xem hàng
+        </div>
+        <div class="list__item" *ngIf="objOrder.value.paymentMethod">
+          <strong>Thanh toán:</strong> Người nhận trả tiền
+        </div>
+        <div class="list__item" *ngIf="!objOrder.value.paymentMethod">
+          <strong>Thanh toán:</strong> Người giao trả tiền
+        </div>
+
+        <div class="list__item" *ngIf="objOrder.value.driverAcceptAt == null">
+          <strong>Giờ tài xế lấy hàng:</strong> Chưa
+        </div>
+        <div class="list__item" *ngIf="fullNameDriver">
+          <strong>Người giao hàng:</strong> {{ fullNameDriver }}
+        </div>
+        <div class="list__item" *ngIf="!fullNameDriver">
+          <strong>Người giao hàng:</strong> Chưa có tài xế nhận hàng
+        </div>
+        <div class="list__item" *ngIf="objOrder.value.driverAcceptAt != null">
+          <strong>Giờ tài xế lấy hàng:</strong>
+          {{ objOrder.value.driverAcceptAt | date : "HH:mm dd/MM/yyyy" }}
+        </div>
+        <div class="list__item" style="width: 100%; border: none">
+          <strong>Ghi chú:</strong> {{ objOrder.value.userNote }}
+        </div>
+      </div>
+      <div class="class-product">
+        <mat-card-title>Sản phẩm</mat-card-title>
+        <div formArrayName="orderDetails">
+          <ul
+            *ngFor="let item of orderDetails.controls; let i = index"
+            [formGroupName]="i"
+            class="list__info"
+          >
+            <li>
+              <p><strong>Tên sản phẩm</strong>: {{ item.value.productName }}</p>
+            </li>
+            <li *ngIf="item.value.gam">
+              <p><strong>Khối lượng</strong>: {{ item.value.gam }}g</p>
+            </li>
+            <li *ngIf="item.value.quantity">
+              <p><strong>Số lượng</strong>: {{ item.value.quantity }}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </mat-card-content>
+  </form>
+</mat-card>
+
+<mat-card>
+  <mat-card-actions class="groupbtn">
+    <button mat-raised-button color="primary">
+      <a
+        style="text-decoration: none; color: white"
+        routerLink="/user/order/status-order"
+        >Quay lại</a
+      >
+    </button>
+    <button *ngIf="editData.status == 0" mat-raised-button color="warn">
+      <a
+        style="text-decoration: none; color: white"
+        [routerLink]="['/order', objOrder.value.orderId, 'order-edit']"
+        >Sửa đơn hàng</a
+      >
+    </button>
+  </mat-card-actions>
+</mat-card>

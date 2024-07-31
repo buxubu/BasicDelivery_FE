@@ -1,0 +1,171 @@
+<form class="example-form" [formGroup]="objOrder">
+  <mat-card>
+    <mat-card-title style="margin: 1%">Bên nhận</mat-card-title>
+    <mat-card-content>
+      <mat-form-field class="mat-50">
+        <mat-label>Số điện thoại</mat-label>
+        <input matInput formControlName="receiverPhone" />
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Địa chỉ</mat-label>
+        <input matInput formControlName="receiverAddress" />
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Họ và tên</mat-label>
+        <input matInput formControlName="receiverName" />
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Quận - Huyện</mat-label>
+        <input matInput formControlName="receiverDistrict" />
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Phường - Xã</mat-label>
+        <input matInput formControlName="receiverWard" />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-title style="margin: 1%">Sản phẩm</mat-card-title>
+
+    <!-- tách array orderDetail trong order -->
+    <mat-card-content formArrayName="orderDetails">
+      <mat-card-content
+        *ngFor="let item of orderDetails.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <mat-form-field class="mat-50">
+          <mat-label>Nhập tên sản phẩm</mat-label>
+          <input
+            matInput
+            formControlName="productName"
+            placeholder="abcxyz..."
+          />
+        </mat-form-field>
+
+        <mat-form-field class="mat-50">
+          <mat-label>KL (gam)</mat-label>
+          <input type="number" matInput placeholder="200" formControlName="gam" />
+        </mat-form-field>
+
+        <mat-form-field class="mat-50">
+          <mat-label>SL</mat-label>
+          <input type="number" matInput placeholder="1" formControlName="quantity" />
+        </mat-form-field>
+        <!-- <button mat-button (click)="deleteItem(i)">Xóa sản phẩm</button> -->
+      </mat-card-content>
+      <!-- <button
+        style="background-color: peru; color: black; border-radius: 10px"
+        mat-button
+        (click)="()"
+      >
+        Thêm sản phẩm
+      </button> -->
+    </mat-card-content>
+
+    <mat-card-title style="margin: 1%">Thông tin gói hàng</mat-card-title>
+    <mat-card-content>
+      <mat-form-field class="mat-20">
+        <mat-label>Tổng KL(gam)</mat-label>
+        <input type="number" matInput placeholder="500" formControlName="totalGamPackage" />
+      </mat-form-field>
+
+      <mat-form-field class="mat-20">
+        <mat-label>Dài</mat-label>
+        <input type="number" matInput placeholder="10" formControlName="longPackage" />
+      </mat-form-field>
+
+      <mat-form-field class="mat-20">
+        <mat-label>Rộng</mat-label>
+        <input type="number" matInput placeholder="10" formControlName="widePackage" />
+      </mat-form-field>
+
+      <mat-form-field class="mat-20">
+        <mat-label>Cao</mat-label>
+        <input type="number" matInput placeholder="10" formControlName="heightPackage" />
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-content>
+      <mat-form-field class="mat-50">
+        <mat-label>Tổng tiền COD</mat-label>
+        <input type="number" matInput placeholder="0" formControlName="totalCod" />
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Tổng giá trị hàng hóa</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="0"
+          formControlName="totalPriceProduct"
+        />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-title style="margin: 1%">Lưu ý - Ghi chú</mat-card-title>
+    <mat-card-content>
+      <mat-form-field class="mat-50">
+        <mat-label>Giao hàng thất bại thu tiền</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="0"
+          formControlName="failedDeliveryMoney"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Xem hàng</mat-label>
+        <mat-select formControlName="requestSeeProduct">
+          <mat-option [value]="true">Cho xem hàng</mat-option>
+          <mat-option [value]="false">Không cho xem hàng</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Ghi chú</mat-label>
+        <textarea
+          matInput
+          placeholder="Ex. It makes me feel..."
+          formControlName="userNote"
+        ></textarea>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-subtitle style="margin: 1%"
+      >Tùy chọn thanh toán</mat-card-subtitle
+    >
+
+    <mat-form-field class="mat-50">
+      <mat-label>Thanh toán</mat-label>
+      <mat-select formControlName="paymentMethod">
+        <mat-option [value]="true">Bên nhận trả tiên</mat-option>
+        <mat-option [value]="false">Bên giao trả tiền</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- <mat-card-content>
+      <mat-label>Thanh toán</mat-label>
+      <mat-select formControlName="">
+        <mat-option [value]="item" *ngFor="let item of paymentLst">{{
+          item
+        }}</mat-option>
+      </mat-select>
+    </mat-card-content> -->
+
+    <button
+    type="submit"
+    (click)="Update()"
+      mat-raised-button
+      color="primary"
+      style="
+        width: 100px;
+        margin-left: 50%;
+      "
+    >
+      Cập nhật
+    </button>
+    <br />
+    {{ objOrder.value | json }}
+  </mat-card>
+</form>

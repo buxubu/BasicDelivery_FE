@@ -1,0 +1,31 @@
+<div class="list">
+  <mat-card class="card-class" *ngFor="let item of lstOrder">
+    <div>
+      <mat-card-header>
+        <mat-card-title style="color: blue">{{
+          item.receiverName
+        }}</mat-card-title>
+        <mat-card-title style="color: blue">{{
+          item.receiverPhone
+        }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ item.receiverAddress }}</p>
+        <p *ngIf="item.receiverAddress">
+          Ship: {{ item.shipCost ?? 0 | dong }} - Cho xem hàng
+        </p>
+        <p *ngIf="!item.receiverAddress">
+          {{ item.shipCost }} - Không cho xem hàng
+        </p>
+        <p>Thu hộ - {{ item.totalCod ?? 0 | dong }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <!-- <button mat-button> <mat-icon>cancel</mat-icon>Hủy</button> -->
+        <button mat-button (click)="acceptOrder(item.orderId)">
+          <mat-icon>done</mat-icon>Nhận đơn
+        </button>
+      </mat-card-actions>
+      <!-- <mat-card-footer></mat-card-footer> -->
+    </div>
+  </mat-card>
+</div>

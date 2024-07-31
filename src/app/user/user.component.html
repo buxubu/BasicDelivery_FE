@@ -1,0 +1,10 @@
+<mat-drawer-container style="height: 100vh;">
+  <mat-drawer mode="side" [opened]="SideBarOpen">
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-user-header (toggleSidebarForMe)="sideBarToggler()"></app-user-header>
+    <app-user-header-tag></app-user-header-tag>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

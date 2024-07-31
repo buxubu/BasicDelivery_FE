@@ -1,0 +1,30 @@
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.list {
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.card-class {
+  width: calc(100% / 4 - 15px);
+  height: 250px;
+}
+.card-class a {
+  text-decoration: none;
+}
+
+mat-card-content p {
+  font-size: 13px;
+  color: black;
+  margin: 1px;
+}
+
+mat-card-title {
+  font-size: 15px;
+  margin: 0;
+}

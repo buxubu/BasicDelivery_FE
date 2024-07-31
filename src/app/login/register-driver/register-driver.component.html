@@ -1,0 +1,190 @@
+<div
+  class="grform"
+  style="height: 100vh; position: relative; display: flex; align-items: center"
+>
+  <div class="imgLogin">
+    <img src="../assets/img/banner.jpg" alt="" />
+  </div>
+  <mat-card-content class="formLogin">
+    <div class="header"><h2>Đăng ký tài xế</h2></div>
+    <form [formGroup]="objDriverRegister">
+      <div class="input">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="ex@gmail.com" formControlName="email" />
+          <mat-error
+            *ngIf="e['email'].touched && e['email'].errors?.['required']"
+            >Vui lòng nhập email</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="input">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Địa chỉ</mat-label>
+          <input matInput placeholder="tphcm..." formControlName="address" />
+          <mat-error
+            *ngIf="e['address'].touched && e['address'].errors?.['required']"
+            >Vui lòng nhập địa chỉ</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="input">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Họ tên</mat-label>
+          <input
+            matInput
+            placeholder="Nguyễn Văn A "
+            formControlName="fullName"
+          />
+          <mat-error
+            *ngIf="e['fullName'].touched && e['fullName'].errors?.['required']"
+            >Vui lòng nhập họ tên</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Mật khẩu</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            required
+            placeholder="Ex. Pkvu@220"
+            formControlName="passwordHash"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide Password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>
+              {{ hide ? "visibility_off" : "visibility" }}
+            </mat-icon>
+          </button>
+          <mat-error
+            *ngIf="e['passwordHash'].touched && e['passwordHash'].errors?.['required']"
+            >Vui lòng nhập mật khẩu</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Xác nhận mật khẩu</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            required
+            placeholder="Ex. Pkvu@220"
+            formControlName="acceptPassword"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide Password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>
+              {{ hide ? "visibility_off" : "visibility" }}
+            </mat-icon>
+          </button>
+          <mat-error
+            *ngIf="e['acceptPassword'].touched && e['acceptPassword'].errors?.['required']"
+            >Vui lòng nhập xác nhận mật khẩu</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="input" style="display: flex">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Số điện thoại</mat-label>
+          <input matInput placeholder="0123..." formControlName="phone" />
+          <mat-error
+            *ngIf="e['phone'].touched && e['phone'].errors?.['required']"
+            >Vui lòng nhập số điện thoại</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Biển số xe</mat-label>
+          <input
+            matInput
+            placeholder="86B7..."
+            formControlName="licenseNumber"
+          />
+          <mat-error
+            *ngIf="e['licenseNumber'].touched && e['licenseNumber'].errors?.['required']"
+            >Vui lòng nhập biển số xe</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Loại xe</mat-label>
+          <input
+            matInput
+            placeholder="AirBlade, Sh..."
+            formControlName="vehicleModel"
+          />
+          <mat-error
+            *ngIf="e['vehicleModel'].touched && e['vehicleModel'].errors?.['required']"
+            >Vui lòng nhập loại xe</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="up-img" style="display: flex">
+        <mat-card-content>
+          <mat-card-subtitle> Tải lên hình ảnh </mat-card-subtitle>
+          <input type="file" (change)="getFileImg($event)" />
+          <p class="class-note">Chấp nhận file đuôi .jpg, .jpeg, .png, .gif</p>
+        </mat-card-content>
+        <mat-card-content>
+          <mat-card-subtitle> Tải lên CCCD mặt trước </mat-card-subtitle>
+          <input type="file" (change)="getFileFont($event)" />
+          <p class="class-note">Chấp nhận file đuôi .jpg, .jpeg, .png, .gif</p>
+        </mat-card-content>
+        <mat-card-content>
+          <mat-card-subtitle> Tải lên CCCD mặt sau</mat-card-subtitle>
+          <input type="file" (change)="getFileBack($event)" />
+          <p class="class-note">Chấp nhận file đuôi .jpg, .jpeg, .png, .gif</p>
+        </mat-card-content>
+      </div>
+
+      <div class="button">
+        <button
+          mat-flat-button
+          type="submit"
+          color="primary"
+          style="text-align: center; margin-left: 10px"
+          (click)="registerDriver()"
+        >
+          Đăng ký
+        </button>
+        <hr />
+        <button
+          routerLink="/login-driver"
+          mat-flat-button
+          type="submit"
+          color="primary"
+          style="text-align: center"
+        >
+          Đăng nhập tài xế
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</div>
+
+<!-- <a routerLink="/user/order">Order</a>
+
+  <div>
+    <ul *ngIf="userToken">
+      <li>{{userToken.email}}</li>
+      <li>AccessToken <br> {{userToken.accessToken}}</li>
+      <li>RefreshToken <br> {{userToken.refreshToken}}</li>
+    </ul>
+  </div> -->

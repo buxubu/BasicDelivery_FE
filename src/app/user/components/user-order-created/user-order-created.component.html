@@ -1,0 +1,60 @@
+<div class="button">
+  <button
+    class="btnAdd"
+    mat-raised-button
+    color="primary"
+    style="margin-left: auto; margin: 1%"
+  >
+    <a
+      style="text-decoration: none; color: white"
+      routerLink="/order/insert-order"
+      >Thêm đơn hàng</a
+    >
+  </button>
+</div>
+<div class="list">
+  <mat-card class="card-class" *ngFor="let item of lstOrder">
+    <!-- <a
+      [routerLink]="['/order', item.orderId, 'order-edit']"
+      style="text-decoration: none"
+    > -->
+    <mat-card-header>
+      <mat-card-title style="color: blue">{{
+        item.receiverName
+      }}</mat-card-title>
+      <mat-card-title style="color: blue">{{
+        item.receiverPhone
+      }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ item.receiverAddress }}</p>
+      <p *ngIf="item.receiverAddress">
+        Ship: {{ item.shipCost ?? 0 | vnd }} - Cho xem hàng
+      </p>
+      <p *ngIf="!item.receiverAddress">
+        {{ item.shipCost }} - Không cho xem hàng
+      </p>
+      <p>Thu hộ - {{ item.totalCod ?? 0 | vnd }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        *ngIf="item.status == 0"
+        mat-button
+        (click)="cancelOrder(item.orderId)"
+      >
+        <mat-icon>cancel</mat-icon>Hủy
+      </button>
+
+      <button mat-button>
+        <mat-icon>details</mat-icon
+        ><a
+          [routerLink]="['/order', item.orderId, 'order-detail']"
+          style="text-decoration: none; color: black"
+          >Xem chi tiết</a
+        >
+      </button>
+    </mat-card-actions>
+    <!-- <mat-card-footer></mat-card-footer> -->
+    <!-- </a> -->
+  </mat-card>
+</div>

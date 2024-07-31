@@ -1,0 +1,49 @@
+<mat-nav-list>
+  <div>
+    <div class="logomain">
+      <img src="../assets/img/logomain.jpg" alt="Delivery" />
+    </div>
+    <p
+      style="
+        text-align: center;
+        font-weight: 500;
+        margin-top: 4px;
+        color: aliceblue;
+      "
+    >
+      Giao Hàng Nhanh
+    </p>
+  </div>
+  <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee">
+    <a
+      mat-list-item
+      routerLink="/driver/order/driver-report"
+      routerLinkActive="list-item-active"
+    >
+      <mat-icon>live_tv</mat-icon> Thống kê
+    </a>
+    <a
+      mat-list-item
+      routerLink="/driver/order"
+      routerLinkActive="list-item-active"
+    >
+      <mat-icon>home</mat-icon> Đơn hàng
+    </a>
+    <a
+      mat-list-item
+      routerLink="/driver/order/driver-history"
+      routerLinkActive="list-item-active"
+    >
+      <mat-icon>history</mat-icon> Lịch sử
+    </a>
+    <a mat-list-item (click)="LogOut()" routerLinkActive="list-item-active">
+      <mat-icon>logout</mat-icon> Đăng xuất
+    </a>
+  </div>
+  <!-- <a mat-list-item routerLink="/user/order/excel-order" routerLinkActive="list-item-active">
+    <mat-icon>attach_file</mat-icon> Excel
+  </a>
+  <a mat-list-item (click)="LogOut()" routerLinkActive="list-item-active">
+    <mat-icon>logout</mat-icon> Logout
+  </a> -->
+</mat-nav-list>

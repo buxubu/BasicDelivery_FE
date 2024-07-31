@@ -1,0 +1,61 @@
+<div id="menuContainer" class="menuContainer btn-group row" role="group">
+  <a
+    class="button"
+    routerLink="/user/order/order-created"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Chờ bàn giao
+    <span style="color: #f86c07">{{ orderUserCreated }}</span>
+  </a>
+
+  <a
+    class="button"
+    routerLink="/user/order/order-deliver"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Đã bàn giao - Đang giao
+    <span style="color: #f86c07">{{ orderUserDeliver }}</span>
+  </a>
+
+  <a
+    class="button"
+    routerLink="/user/order/order-completed"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Hoàn tất
+    <span style="color: #f86c07">{{ orderUserCompleted }}</span>
+  </a>
+
+  <a
+    class="button"
+    routerLink="/user/order/order-cancel"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Đơn hủy
+    <span style="color: #f86c07">{{ orderUserCancel }}</span>
+  </a>
+
+  <a
+    class="button"
+    routerLink="/user/order/order-lost"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Hàng thất lạc - Hư hỏng
+    <span style="color: #f86c07">{{ orderUserLost }}</span>
+  </a>
+
+  <a
+    class="button"
+    routerLink="/user/order/order-fail"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Giao thất bại
+    <span style="color: #f86c07">{{ orderUserFail }}</span>
+  </a>
+</div>

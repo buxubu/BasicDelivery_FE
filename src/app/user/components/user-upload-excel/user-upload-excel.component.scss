@@ -1,0 +1,34 @@
+.formUpload {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+mat-card {
+  margin: 2%;
+  padding: 2%;
+  width: 30%;
+  min-height: 50%;
+}
+
+mat-card mat-card-content .class-note {
+  color: #717171;
+  font-size: 12px;
+  line-height: 20px;
+  font-style: italic;
+  padding-bottom: 8px;
+}
+
+mat-card mat-card-content .class-address {
+  color: #0d4270;
+  margin-right: 30px;
+  word-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.5;
+}
+
+mat-card mat-card-content .class-phone p {
+  font-size: 15px;
+  line-height: 25px;
+  color: #f36323;
+}

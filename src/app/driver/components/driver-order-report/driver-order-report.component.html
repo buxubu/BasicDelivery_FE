@@ -1,0 +1,134 @@
+<div class="group">
+  <div class="itemGroup">
+    <div class="color-4E4E4E fz-12">
+      <span class="titlemain">
+        Báo cáo trạng thái lấy/giao/hoàn hàng của các đơn hàng
+      </span>
+      <br />
+    </div>
+
+    <div class="report-card color-white">
+      <div class="title">
+        <div class="fz-12 opacity-0-7 title-sub">Lấy hàng thành công</div>
+        <div>
+          <span class="itemTitle">{{ orderDriverAccepted }}</span> đơn hàng
+          <i class="fas fa-chevron-right fz-10 opacity-0-5 m-l-8"></i>
+        </div>
+      </div>
+      <div class="title">
+        <div class="fz-12 opacity-0-7 title-sub">Đang giao hàng</div>
+        <div>
+          <span class="itemTitle">{{ orderDriverAccepted }}</span> đơn hàng
+          <i class="fas fa-chevron-right fz-10 opacity-0-5 m-l-8"></i>
+        </div>
+      </div>
+      <div class="title">
+        <div class="fz-12 opacity-0-7 title-sub">Giao thành công</div>
+        <div>
+          <span class="itemTitle">{{ orderDriverCompleted }}</span> đơn hàng
+          <i class="fas fa-chevron-right fz-10 opacity-0-5 m-l-8"></i>
+        </div>
+      </div>
+    </div>
+    <div><i class="fas fa-chevron-right m-r-12"></i></div>
+  </div>
+
+  <div class="itemGroup">
+    <div class="color-4E4E4E fz-12">
+      <span class="titlemain"> Báo cáo dòng tiền của các đơn hàng </span>
+      <br />
+    </div>
+
+    <div class="report-card color-white">
+      <div class="title">
+        <div class="fz-12 opacity-0-7 title-sub">
+          Tiền thu hộ các đơn đã hoàn tất
+        </div>
+        <div>
+          <span class="itemTitle">{{ orderCompletedMoney | dong }}</span>
+          <i class="fas fa-chevron-right fz-10 opacity-0-5 m-l-8"></i>
+        </div>
+      </div>
+      <!-- <div class="title">
+        <div class="fz-12 opacity-0-7 title-sub">Tiền COD</div>
+        <div>
+          <span class="itemTitle">{{ orderUserDeliver }}</span> đơn hàng
+          <i class="fas fa-chevron-right fz-10 opacity-0-5 m-l-8"></i>
+        </div>
+      </div> -->
+      <div class="title">
+        <div class="fz-12 opacity-0-7 title-sub">
+          Tiền nợ chưa giao hoàn tất
+        </div>
+        <div>
+          <span class="itemTitle">{{ orderDeliveryMoney | dong }}</span>
+          <i class="fas fa-chevron-right fz-10 opacity-0-5 m-l-8"></i>
+        </div>
+      </div>
+
+      <div class="title">
+        <div class="fz-12 opacity-0-7 title-sub">Bạn dự kiến nhận được</div>
+        <div>
+          <span class="itemTitle">{{
+            orderDeliveryMoney + orderCompletedMoney | dong
+          }}</span>
+          <i class="fas fa-chevron-right fz-10 opacity-0-5 m-l-8"></i>
+        </div>
+      </div>
+
+      <!-- <div class="title">
+        <div class="fz-12 opacity-0-7 title-sub">
+          Số tiền đơn hủy không thu được
+        </div>
+        <div>
+          <span class="itemTitle">{{ orderCancelyMoney | dong }}</span>
+          <i class="fas fa-chevron-right fz-10 opacity-0-5 m-l-8"></i>
+        </div>
+      </div> -->
+
+      <!-- <div class="title">
+        <div class="fz-12 opacity-0-7 title-sub">
+          Số tiền đơn thất lạc không thu được
+        </div>
+        <div>
+          <span class="itemTitle">{{ orderLostMoney | dong }}</span>
+          <i class="fas fa-chevron-right fz-10 opacity-0-5 m-l-8"></i>
+        </div>
+      </div> -->
+
+      <!-- <div class="title">
+        <div class="fz-12 opacity-0-7 title-sub">
+          Số tiền đơn giao thất bại không thu được
+        </div>
+        <div>
+          <span class="itemTitle">{{ orderFailMoney | dong }}</span>
+          <i class="fas fa-chevron-right fz-10 opacity-0-5 m-l-8"></i>
+        </div>
+      </div> -->
+
+      <!-- <div class="title">
+        <div class="fz-12 opacity-0-7 title-sub">
+          Giao thất bại - Lưu kho giao lại
+        </div>
+        <div>
+          <span class="itemTitle">{{ orderUserFail }}</span> đơn hàng
+          <i class="fas fa-chevron-right fz-10 opacity-0-5 m-l-8"></i>
+        </div>
+      </div> -->
+      <!-- <div class="title">
+        <div class="fz-12 opacity-0-7 title-sub">Hàng thất lạc - Hư hỏng</div>
+        <div>
+          <span class="itemTitle">{{ orderUserLost }}</span> đơn hàng
+          <i class="fas fa-chevron-right fz-10 opacity-0-5 m-l-8"></i>
+        </div>
+      </div> -->
+      <!-- <div class="title">
+        <div class="title-sub">Giao thất bại - Chờ xác nhận giao lại</div>
+        <div>
+          <span class="itemTitle">{{ orderUserCancel }}</span> đơn hàng
+        </div>
+      </div> -->
+    </div>
+    <div><i class="fas fa-chevron-right m-r-12"></i></div>
+  </div>
+</div>

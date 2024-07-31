@@ -1,0 +1,42 @@
+.group {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  padding: 0 15px;
+  overflow: hidden;
+}
+.titlemain {
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  font-size: 26px;
+  color: g;
+}
+
+.itemGroup {
+  width: calc(100% / 2 - 20px);
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  background: #ffcc99;
+}
+.report-card {
+  padding: 5px 15px;
+  border-radius: 1px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.title {
+  color: #191818;
+}
+.itemTitle {
+  color: #dd1818;
+  font-size: 24px;
+}
+.title-sub {
+  font-size: 17px;
+
+  color: black;
+  font-weight: bold;
+}

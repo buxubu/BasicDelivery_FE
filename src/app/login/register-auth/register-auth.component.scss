@@ -1,0 +1,61 @@
+.grform {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.up-img mat-card-content .class-note {
+  color: #717171;
+  font-size: 12px;
+  line-height: 20px;
+  font-style: italic;
+  padding-bottom: 8px;
+}
+.formLogin {
+  margin-top: 60px;
+  padding: 40px;
+  margin-left: 10%;
+  border: 1px solid #eae2d1;
+  border-radius: 10px;
+  background: #f1f0f0;
+  position: relative;
+  z-index: 10;
+  min-width: 400px;
+}
+
+.imgLogin {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+.imgLogin img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.header {
+  text-align: center;
+}
+
+.full-width {
+  width: 80%;
+}
+
+.input {
+  padding-top: 10px;
+}
+
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+
+.flex-container {
+  display: flex;
+}

@@ -1,0 +1,36 @@
+<div class="upload">
+  <!-- <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%">
+    <img
+      style="width: 100%; height: 100%"
+      src="../assets/img/fast_delivery.png"
+      alt=""
+    /> -->
+  <!-- </div> -->
+  <mat-card class="formUpload">
+    <mat-card-title>Lên đơn Excel</mat-card-title>
+    <div>
+      <mat-card-subtitle> Bên gửi </mat-card-subtitle>
+      <mat-card-content style="text-align: start">
+        <div class="class-phone">
+          <p>
+            <span style="color: #222121">Số điện thoại người gửi: </span
+            >{{ userModel?.phone }}
+          </p>
+        </div>
+        <div class="class-address">
+          <span style="color: #222121">Địa chỉ người gửi:</span>
+          {{ userModel?.address }}
+        </div>
+      </mat-card-content>
+      <hr />
+      <mat-card-content>
+        <mat-card-subtitle> Tải lên file excel </mat-card-subtitle>
+        <input type="file" (change)="getFile($event)" />
+        <button mat-button (click)="UpLoad()">
+          <mat-icon>uploadFile</mat-icon> Tải file lên
+        </button>
+        <p class="class-note">Chấp nhận file đuôi .xls, .xlsx, .xlsm</p>
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div>

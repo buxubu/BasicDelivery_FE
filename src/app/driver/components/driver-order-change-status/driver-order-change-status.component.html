@@ -1,0 +1,29 @@
+<h1 mat-dialog-content>{{ inputData.title }}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="changeStatusForm">
+    <mat-form-field>
+      <mat-label>Lý do</mat-label>
+      <textarea
+        matInput
+        placeholder="Chọn lý do thay đổi"
+        formControlName="reason"
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Location</mat-label>
+      <input matInput placeholder="Chọn lý do thay đổi" formControlName="location" />
+    </mat-form-field>
+
+    <mat-form-field class="mat-50">
+      <mat-label>Thay đổi trạng thái</mat-label>
+      <mat-select formControlName="status">
+        <mat-option *ngFor="let item of statusModel" [value]="item.statusInt" >{{item.status}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="closePopup()">Đóng</button>
+  <button mat-raised-button color="primary" (click)="UpdateChangeStatusOrder()">Thay đổi trạng thái đơn hàng</button>
+</div>

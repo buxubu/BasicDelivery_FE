@@ -1,0 +1,126 @@
+<div
+  class="grform"
+  style="height: 100vh; position: relative; display: flex; align-items: center"
+>
+  <div class="imgLogin">
+    <img src="../assets/img/banner.jpg" alt="" />
+  </div>
+  <mat-card-content class="formLogin">
+    <div class="header"><h2>Đăng nhập tài xế</h2></div>
+    <form [formGroup]="objLoginModel">
+      <div class="email-input">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="ex@gmail.com" formControlName="Email" />
+          <mat-error
+            *ngIf="e['Email'].touched && e['Email'].errors?.['required']"
+            >Vui lòng nhập email</mat-error
+          >
+          <mat-error
+            *ngIf="e['Email'].touched && e['Email'].errors?.['maxLength'] || e['Email'].touched && e['Email'].errors?.['minLength'] "
+            >Vui lòng nhập từ 15 đến 300 ký tự cho email</mat-error
+          >
+          <mat-error *ngIf="e['Email'].touched &&e['Email'].errors?.['email']"
+            >Vui lòng nhập đúng định dạng email</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            required
+            placeholder="Ex. Pkvu@220"
+            formControlName="PasswordHash"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide Password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>
+              {{ hide ? "visibility_off" : "visibility" }}
+            </mat-icon>
+          </button>
+          <mat-error
+            *ngIf="e['PasswordHash'].touched && e['PasswordHash'].errors?.['required']"
+            >Vui lòng nhập mật khẩu</mat-error
+          >
+          <mat-error
+            *ngIf="e['PasswordHash'].touched && e['PasswordHash'].errors?.['pattern']"
+          >
+            Mật khẩu phải ít nhất 8 ký tự và chứa một số, một ký tự và một ký tự
+            đặc biệt.</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <!-- remove_red_eye -->
+
+      <!-- <p *ngIf="error" class="error">
+    {{ error }}
+  </p> -->
+      <!-- <p *ngIf="error" class="error">
+        {{ error }}
+      </p> -->
+      <div *ngIf="apiErrorMessage.length > 0">
+        <ul style="padding-left: 0%">
+          <li
+            *ngFor="let error of apiErrorMessage"
+            style="color: red; list-style-type: none"
+          >
+            {{ error }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="button" style="padding-top: 15%">
+        <button
+          (click)="Login()"
+          mat-flat-button
+          type="submit"
+          color="primary"
+          style="text-align: center"
+        >
+          Đăng nhập
+        </button>
+        <button
+          mat-flat-button
+          type="submit"
+          color="primary"
+          style="text-align: center; margin-left: 10px"
+        >
+          <a
+            routerLink="/register-driver"
+            style="text-decoration: none; color: white"
+            >Đăng ký</a
+          >
+        </button>
+        <hr />
+        <button
+          routerLink="/login-user"
+          mat-flat-button
+          type="submit"
+          color="primary"
+          style="text-align: center"
+        >
+          Đăng nhập người dùng
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</div>
+
+<!-- <a routerLink="/user/order">Order</a>
+
+  <div>
+    <ul *ngIf="userToken">
+      <li>{{userToken.email}}</li>
+      <li>AccessToken <br> {{userToken.accessToken}}</li>
+      <li>RefreshToken <br> {{userToken.refreshToken}}</li>
+    </ul>
+  </div> -->
