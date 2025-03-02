@@ -1,4 +1,4 @@
-# Project details: Website LearnerDuo
+# Project details: Basic Website Delivery
 Describe: Fast delivery website is simple but powerful, meeting the business needs of businesses and the shopping needs of customers.
 1. User Authentication: Sign in & Sign up with Json Web Tokens (Login, Register user and Register driver pages)
 2. The home page user shows a complete overview of the user interface such as listing pending, in progress, completed, canceled and added new orders
