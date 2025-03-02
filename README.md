@@ -1,27 +1,58 @@
-# BasicDelivery
+# Project details: Website LearnerDuo
+Describe: Fast delivery website is simple but powerful, meeting the business needs of businesses and the shopping needs of customers.
+1. User Authentication: Sign in & Sign up with Json Web Tokens (Login, Register user and Register driver pages)
+2. The home page user shows a complete overview of the user interface such as listing pending, in progress, completed, canceled and added new orders
+3. Page statistics interface
+4. Page to add multiple orders using excel file
+5. Page order tracking
+6. Page add and update order
+7. Interface for tracking orders, viewing order details, and updating orders
+8. The home page driver shows a complete overview of the user interface such as orders not received yet, orders accepted, orders canceled
+9. Driver interface changes order status
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+# Images
+1. User Authentication: Sign in & Sign up with Json Web Tokens (Login, Register user and Register driver pages)
 
-## Development server
+•	Register user page
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![image](https://github.com/user-attachments/assets/e58087b9-fca7-4cfd-9a7a-18e1f177b941)
 
-## Code scaffolding
+•	Register driver page
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![image](https://github.com/user-attachments/assets/cb584602-1bb2-48d1-979b-4c4d4a03b77b)
 
-## Build
+•	Login user and driver page
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![image](https://github.com/user-attachments/assets/e413a56f-991a-4692-99a5-39d84d359e05)
 
-## Running unit tests
+2. The home page user shows a complete overview of the user interface such as listing pending, in progress, completed, canceled and added new orders
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![image](https://github.com/user-attachments/assets/2e27bf01-9583-4f24-a429-aee7884f4813)
 
-## Running end-to-end tests
+3. Page statistics interface
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![image](https://github.com/user-attachments/assets/c4b362cd-dd77-4800-9d42-e019ec74049a)
 
-## Further help
+4. Page to add multiple orders using excel file
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![image](https://github.com/user-attachments/assets/6e98b999-ab37-4392-9601-25ab80170dd5)
+
+7. Edit profile with many feature included: Update information, add photos
+•	Update information
+![image](https://github.com/user-attachments/assets/2a732d1e-a760-4db3-93bc-eeb69e5b1bf9)
+
+•	Add photos
+![image](https://github.com/user-attachments/assets/44dfc8f7-29ff-4f9c-9fed-6bbe0c89f364)
+
+6. Detailed user functions such as displaying real-time online user information, viewing photos, and sending messages
+•	Displaying real-time online user information
+![image](https://github.com/user-attachments/assets/dfe7fe86-0553-42cd-9fde-3158e1a3e374)
+
+•	Display photos
+![image](https://github.com/user-attachments/assets/196fe7f9-cf04-423a-b4a1-23f652d2e8c3)
+
+•	Sending messages real-time
+![image](https://github.com/user-attachments/assets/7d6ac40b-ae72-478d-ba47-e1ee04516dd8)
+
+
+
